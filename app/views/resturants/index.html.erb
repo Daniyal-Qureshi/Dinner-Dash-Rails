@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h1>Assign item to Resturant</h1>
+
+  <%= form_with( local: true) do |form| %>
+
+  <p>
+    <%= form.select :resturants, @resturants.pluck('name'),
+    :class=>"form-control" %>
+  </p>
+
+  <%= form.select :items, @items.pluck('title'), class:"custom-select" %>
+
+  <p><%= form.submit 'Create Resturant' , :class=>"btn btn-primary" %></p>
+
+  <% end %>
+</div>

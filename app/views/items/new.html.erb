@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h1>Add New Item</h1>
+
+  <%= form_with(model: @item, local: true) do |form| %>
+
+  <p>
+    <%= form.label :title %><br />
+    <%= form.text_field :title , :class=>"form-control" %>
+  </p>
+
+  <p>
+    <%= form.label :price %><br />
+    <%= form.number_field :price , :class=>"form-control" %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br />
+    <%= form.text_area :description , :class=>"form-control" %>
+  </p>
+
+  <p>
+    <%= form.label :cover_picture %><br />
+    <%= form.file_field :cover_picture , :class=>"form-control" %>
+  </p>
+
+  <p>
+    <%= form.label "Assign item to resturants" %>
+
+    <br />
+
+    <%= form.select :resturants, @resturants.pluck('name'), {class:'
+    form-control'} %>
+  </p>
+
+  <p><%= form.submit 'Create Item' , :class=>"btn btn-primary" %></p>
+
+  <% end %>
+</div>

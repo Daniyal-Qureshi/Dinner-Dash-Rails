@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Popular Resturants</h2>
+  <div class="row">
+    <% @items.each do |item| %>
+
+    <div class="col-3 mt-5">
+      <div class="card h-100">
+        <% if item.photo.nil?%> <%= image_tag(item.cover_picture) %> <%else%>
+        <%= image_tag(item.photo) %> <% end %>
+        <div class="card-body">
+          <h5><%= item.title%></h5>
+          <p><%= item.description%></p>
+          <p class="text-muted">Rs. <%= item.price%></p>
+        </div>
+        <div class="card-footer text-muted">
+          <%= form_with url: "/carts?item_id=#{item.id}" , remote: true ,
+          method: :post do |f| %> <%=f.submit "Add to Cart" , class:"cart-btn"%>
+          <%end%>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+</div>

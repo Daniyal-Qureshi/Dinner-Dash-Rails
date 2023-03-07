@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h1>Add New Resturant</h1>
+
+  <%= form_with(model: @resturant, local: true) do |form| %>
+
+  <p>
+    <%= form.label :name %><br />
+    <%= form.text_field :name , :class=>"form-control" %>
+  </p>
+
+  <p>
+    <%= form.label :location %><br />
+    <%= form.text_field :location , :class=>"form-control" %>
+  </p>
+
+  <p><%= form.submit 'Create Resturant' , :class=>"btn btn-primary" %></p>
+
+  <% end %>
+</div>

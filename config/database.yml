@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  user: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database: Test_Project_Dinner_Dash_development
+
+test:
+  <<: *default
+  database: Test_Project_Dinner_Dash_development_test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+

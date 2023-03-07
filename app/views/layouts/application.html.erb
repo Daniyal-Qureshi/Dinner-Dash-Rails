@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= stylesheet_link_tag 'application', media: 'all',
+    'data-turbolinks-track': 'reload' %> <%= javascript_include_tag :application
+    %> <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="container mt-4">
+      <% if alert %>
+      <div class="alert alert-danger" role="alert"><%=alert%></div>
+      <%end%> <% if notice %>
+      <div class="alert alert-info" role="alert"><%=notice%></div>
+      <%end%>
+    </div>
+
+    <%= yield %>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</html>

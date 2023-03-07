@@ -1,0 +1,11 @@
+<div class="container mt-5">
+  <h3 class="float-left"><strong> Items in order</strong></h3>
+  <%= render partial: "items", :locals =>{:items => @items}%>
+  <div>
+    <h5><strong> Total price </strong> : <%=@total_amount %></h5>
+
+    <h5><strong> Status </strong> : <%=@status%></h5>
+
+    <h5><strong> Order Time </strong> : <%=@items[0]["created_at"] %></h5>
+  </div>
+</div>

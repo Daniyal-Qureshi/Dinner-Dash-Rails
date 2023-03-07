@@ -1,0 +1,25 @@
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col">ITEM NAME</th>
+      <th scope="col">QUANTITY</th>
+      <th scope="col">SUBTOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% items.each do |item| %>
+
+    <tr>
+      <td><%= item["title"]%></td>
+
+      <td>
+        <%=item["quantity"] %>
+
+        <span></span>
+      </td>
+
+      <td><%= item["price"]*item["quantity"] %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>

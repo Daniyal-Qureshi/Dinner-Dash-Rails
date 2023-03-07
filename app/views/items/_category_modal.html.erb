@@ -1,0 +1,19 @@
+<div class="modal fade category-modal" tabindex="-1" id="modal" role="dialog" aria-labelledby="mySmallModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content p-5">
+      <h5><strong> Select Category </strong></h5>
+
+      <%= form_with url: "/", remote: true , method: :get do |f| %> <%=
+      f.radio_button :category_id ,0 %> <%= label_tag "All" %>
+
+      <br />
+
+      <% @categories.each do |category| %> <%= f.radio_button :category_id ,
+      category.id %> <%= label_tag category.name %>
+
+      <br />
+      <%end%> <%=f.submit "Save" , class:"btn btn-primary" %> <%end%>
+    </div>
+  </div>
+</div>

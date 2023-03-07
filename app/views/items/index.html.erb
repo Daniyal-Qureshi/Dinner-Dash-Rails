@@ -1,0 +1,80 @@
+<%= render 'category_modal' %>
+<div class="d-flex justify-content-between p-5">
+  <div class="d-flex align-items-center">
+    <%= image_tag "burger.png" %>
+    <h3>
+      <strong> Dany Foods </strong>
+    </h3>
+
+    <% if user_signed_in? %>
+    <h4 class="ml-3 text-danger">
+      <strong> Welcome Mr. <%= current_user.full_name%> </strong>
+    </h4>
+    <%end%>
+  </div>
+
+  <div>
+    <h3>
+      <span class="badge badge-primary cart-qty">
+        <%= session[:items].length %>
+      </span>
+    </h3>
+
+    <button class="category-btn" type="button" data-toggle="modal" data-target=".category-modal">
+      <i class="fa fa-filter"></i>
+    </button>
+
+    <%= link_to popular_item_index_path do %>
+
+    <button type="button" class="category-btn">
+      <i class="fa fa-star text-success"></i>
+    </button>
+
+    <% end %> <%= link_to carts_path do %>
+
+    <button type="button" class="category-btn">
+      <i class="fa fa-cart-plus cart-icon"> </i>
+    </button>
+
+    <% end %>
+
+    <div>
+      <% if user_signed_in?%> <%= link_to destroy_user_session_path,method:
+      :delete do %>
+
+      <button type="button" class="btn btn-primary">Sign out</button>
+
+      <% end %> <%else%> <%= link_to new_user_session_path do %>
+
+      <button type="button" class="btn btn-primary">Sign in</button>
+
+      <% end %> <%end%>
+    </div>
+  </div>
+</div>
+
+<div id="display">
+  <%= render 'show_items' %>
+</div>
+
+<% if user_signed_in? %>
+<div class="container">
+  <div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle menu-dropdown" role="button" id="dropdownMenuLink"
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-plus-circle circle-icon"></i>
+    </a>
+
+    <div class="p-4 dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <%= link_to "Create Item" ,new_item_path %>
+      <br />
+
+      <%= link_to "Create Resturant" ,new_resturant_path %>
+      <br />
+
+      <%= link_to "Create Category" ,new_category_path %>
+      <br />
+    </div>
+  </div>
+</div>
+<%end%>
